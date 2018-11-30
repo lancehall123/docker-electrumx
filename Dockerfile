@@ -6,11 +6,11 @@ COPY ./bin /usr/local/bin
 
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
-    apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/main leveldb-dev && \
+    apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing leveldb-dev && \
     pip install aiohttp pylru plyvel && \
     git clone https://github.com/Manbearpixel/electrumx.git && \
-	git rev-parse HEAD && \
     cd electrumx && \
+	git rev-parse HEAD && \
     python setup.py install && \
     apk del git build-base && \
     rm -rf /tmp/*
