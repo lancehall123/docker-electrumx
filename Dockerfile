@@ -10,7 +10,7 @@ RUN chmod a+x /usr/local/bin/* && \
     pip install aiohttp pylru plyvel && \
     git clone https://github.com/Manbearpixel/electrumx.git && \
     cd electrumx && \
-	git rev-parse HEAD && \
+	git checkout odin-support && \
     python setup.py install && \
     apk del git build-base && \
     rm -rf /tmp/*
