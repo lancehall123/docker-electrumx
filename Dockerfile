@@ -25,8 +25,8 @@ ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
 ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
 #ENV HOST "159.89.140.84"
 ENV COIN=Odin
-ENV USERNAME=electrumx
-ENV DAEMON_URL=http://user:password@localhost:1988
+ENV USERNAME=user
+ENV DAEMON_URL=http://user:password@172.17.0.2:1988
 WORKDIR /data
 
 EXPOSE 50001 50443
