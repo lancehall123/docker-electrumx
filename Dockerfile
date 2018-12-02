@@ -1,4 +1,4 @@
-FROM FROM ubuntu:16.04
+FROM python:3.6-alpine3.6
 
 LABEL maintainer="Lance Hall"
 
@@ -7,7 +7,7 @@ COPY ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
     apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing leveldb-dev && \
-    pip install aiohttp pylru plyvel && \
+    pip install aiohttp pylru plyvel quark_hash && \
     git clone https://github.com/Manbearpixel/electrumx.git && \
     cd electrumx && \
 	git checkout odin-support && \
