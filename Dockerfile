@@ -1,4 +1,4 @@
-FROM python:3.6-alpine3.6
+FROM FROM ubuntu:16.04
 
 LABEL maintainer="Lance Hall"
 
@@ -25,8 +25,8 @@ ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
 ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
 #ENV HOST "159.89.140.84"
 ENV COIN=Odin
-ENV USERNAME=user
-ENV DAEMON_URL=http://user:password@172.17.0.2:1988
+ENV USERNAME=userme
+ENV DAEMON_URL=http://userme:passwordme@172.17.0.2:1988
 WORKDIR /data
 
 EXPOSE 50001 50443
