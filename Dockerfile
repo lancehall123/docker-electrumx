@@ -27,7 +27,7 @@ ENV HOST="138.68.45.188"
 ENV RPC_HOST="127.0.0.1"
 ENV COIN=Odin
 ENV USERNAME=userme
-ENV DAEMON_URL=http://userme:passwordme@172.17.0.2:1988/
+ENV DAEMON_URL=http://userme:passwordme@172.17.0.3:1988/
 WORKDIR /data
 
 EXPOSE 50001 50443
