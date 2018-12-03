@@ -6,7 +6,7 @@ COPY ./bin /usr/local/bin
 
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
-    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/latest-stable/main leveldb-dev && \
+    apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ leveldb-dev && \
     pip install aiohttp pylru plyvel quark_hash && \
     git clone https://github.com/odinblockchain/electrumx.git && \
     cd electrumx && \
