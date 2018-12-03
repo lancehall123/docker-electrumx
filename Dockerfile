@@ -8,7 +8,7 @@ RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
     apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing leveldb-dev && \
     pip install aiohttp pylru plyvel quark_hash && \
-    git clone https://github.com/Manbearpixel/electrumx.git && \
+    git clone https://github.com/odinblockchain/electrumx.git && \
     cd electrumx && \
 	git checkout odin-support && \
     python setup.py install && \
@@ -23,7 +23,7 @@ ENV TCP_PORT=50001
 ENV SSL_PORT=50443
 ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
 ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
-ENV HOST="127.0.0.1"
+ENV HOST=""
 ENV RPC_HOST="127.0.0.1"
 ENV COIN=Odin
 ENV USERNAME=userme
