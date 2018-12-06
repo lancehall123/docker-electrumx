@@ -1,6 +1,6 @@
 FROM python:3.6-alpine3.6
 
-LABEL maintainer="Lance Hall"
+LABEL maintainer="OPL"
 
 COPY ./bin /usr/local/bin
 
@@ -23,7 +23,7 @@ ENV TCP_PORT=50001
 ENV SSL_PORT=50443
 ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
 ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
-ENV HOST="0.0.0.0"
+ENV HOST="127.0.0.1"
 ENV RPC_HOST="127.0.0.1"
 ENV COIN=Odin
 ENV USERNAME=userme
@@ -33,12 +33,3 @@ WORKDIR /data
 EXPOSE 50001 50443
 
 CMD ["init"]
-
-
-# REQUIRED
-#DB_DIRECTORY = /db
-# Bitcoin Node RPC Credentials
-#DAEMON_URL = http://username:password@hostname:port/
-
-# See https://github.com/kyuupichan/electrumx/blob/master/docs/ENVIRONMENT.rst for
-# information about other configuration settings you probably want to consider.
