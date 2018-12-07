@@ -1,46 +1,32 @@
+﻿## Usage
 
-# docker-electrumx
+Create Volume.
 
-[![Build Status](https://travis-ci.org/lukechilds/docker-electrumx.svg?branch=master)](https://travis-ci.org/lukechilds/docker-electrumx)
-[![Image Layers](https://images.microbadger.com/badges/image/lukechilds/electrumx.svg)](https://microbadger.com/images/lukechilds/electrumx)
-[![Docker Pulls](https://img.shields.io/docker/pulls/lukechilds/electrumx.svg)](https://hub.docker.com/r/lukechilds/electrumx/)
+In the example our persistant volume is called electrumx. This is being mapped to the /data directory inside the container.
 
-> Run an Electrum server with one command
+Coin daemon needs to be running and have the required access from this container to the daemon.
 
-An easily configurable Docker image for running an Electrum server.
+Notes:
 
-## Usage
-
-```
-docker run \
-  -v /home/username/electrumx:/data \
-  -e DAEMON_URL=http://user:pass@host:port \
-  -e COIN=Bitcoin \
-  -p 50002:50002 \
-  lukechilds/electrumx
-```
-
-If there's an SSL certificate/key (`electrumx.crt`/`electrumx.key`) in the `/data` volume it'll be used. If not, one will be generated for you.
-
-You can view all ElectrumX environment variables here: https://github.com/kyuupichan/electrumx/blob/master/docs/environment.rst
-
-### TCP Port
-
-By default only the SSL port is exposed. You can expose the unencrypted TCP port with `-p 50001:50001`, although this is strongly discouraged.
-
-### Version
-
-You can also run a specific version of ElectrumX if you want.
+If you having trouble with connecting to the daemon then this might be because you have not allowed the IP that you are coming in on.
 
 ```
 docker run \
-  -v /home/username/electrumx:/data \
+  -v electrumx:/data \
   -e DAEMON_URL=http://user:pass@host:port \
-  -e COIN=Bitcoin \
-  -p 50002:50002 \
-  lukechilds/electrumx:v1.2.1
+  -e COIN=Odin \
+  -p 50001:50001 \
+  -p 50443:50443 \
+imagename
 ```
+If no certs are in the volume then it will be generated.
 
-## License
+ElectrumX environment variables 
 
-MIT © Luke Childs
+https://github.com/kyuupichan/electrumx/blob/master/docs/environment.rst
+
+
+
+
+
+
