@@ -5,7 +5,7 @@ LABEL maintainer="OPL"
 COPY ./bin /usr/local/bin
 
 RUN chmod a+x /usr/local/bin/* && \
-    apk add --no-cache git build-base openssl && \
+    apk add --no-cache git build-base openssl bash && \
     apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ leveldb-dev && \
     pip install aiohttp pylru plyvel quark_hash && \
     git clone https://github.com/odinblockchain/electrumx.git && \
@@ -23,10 +23,9 @@ ENV TCP_PORT=50001
 ENV SSL_PORT=50443
 ENV SSL_CERTFILE ${DB_DIRECTORY}/electrumx.crt
 ENV SSL_KEYFILE ${DB_DIRECTORY}/electrumx.key
-ENV HOST="127.0.0.1"
-ENV RPC_HOST="127.0.0.1"
+ENV HOST="35.224.79.62"
 ENV COIN=Odin
-ENV USERNAME=userme
+ENV USERNAME=root
 WORKDIR /data
 
 EXPOSE 50001 50443
