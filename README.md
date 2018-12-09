@@ -1,6 +1,6 @@
 ﻿## Usage
 
-Create Volume..
+Create Volume...
 
 In the example our persistant volume is called electrumx. This is being mapped to the /data directory inside the container.
 
