@@ -1,0 +1,61 @@
+{
+   "apiVersion": "apps/v1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "odin-electrumx",
+      "labels": {
+         "app": "electrumx"
+      }
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "app": "electrumx"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "app": "electrumx"
+            }
+         },
+   "spec": {
+      "containers": [
+         {
+            "name": "odin-electrumx",
+            "image": "registry.hub.docker.com/bohica/docker-electrumx:latest",
+            "env": [
+                {
+                   "name": "DAEMON_URL",
+                   "value": "http://user:password@10.39.246.35:1988"
+                }
+             ],
+            "ports": [
+               {
+                  "containerPort": 50443
+               },
+               {
+                "containerPort": 50001
+             }
+            ],
+            "volumeMounts": [
+               {
+                  "mountPath": "/data",
+                  "name": "electrumx"
+               }
+            ]
+         }
+      ],
+      "volumes": [
+         {
+            "name": "electrumx",
+            "persistentVolumeClaim": {
+               "claimName": "electrumx"
+            }
+         }
+            ]
+   }
+      }
+   }
+}
