@@ -18,14 +18,14 @@ Example: http://user:password@host:port
 ### Installing
 
 You'll need to change this in your electrumx.json to suite your network setup.
-
+```
 "env": [
                 {
                    "name": "DAEMON_URL",
                    "value": "http://user:password@10.39.246.35:1988"
                 }
 
-
+```
 We'll want to create the volume. In order to do so run this:
 
 ```
