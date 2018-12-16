@@ -28,33 +28,34 @@ You'll need to change this in your electrumx.json to suite your network setup.
 
 We'll want to create the volume. In order to do so run this:
 
+```
 kubectl create -f "path\to\electrumx_pv.json"
+```
 
 Once that is completed then go ahead and create the electrumx deployment and in order to do so then run this:
-
+```
 kubectl create -f "path\to\electrumx.json"
+```
 
 Next, you'll need to create your service in order for this to be accessed from the outside. Run this:
-
+```
 kubectl expose deployment odin-electrumx --type=LoadBalancer --name=odinelectrumx --port=50443
-
+```
 Get your external IP and use that as your connection in your client.
-
-
 
 ## Viewing screen data
 
 Get your pod name:
-
+```
 kubectl get pods 
-
+```
 It should show something like this.
-
+```
 odin-electrumx-78f87cb869-mdqlz
-
+```
 Then you want to view the logs of this pod.
-
+```
 kubectl logs odin-electrumx-78f87cb869-mdqlz
-
+```
 You can filter the output data as you wish.
 
